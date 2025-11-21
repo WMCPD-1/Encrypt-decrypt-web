@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureText | Encrypt & Decrypt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <i class="fa-solid fa-shield-halved logo-icon"></i>
+                <h1>SecureText</h1>
+                <p>AES Encryption Tool</p>
+            </div>
+
+            <div class="input-group">
+                <label>Input Text</label>
+                <div class="textarea-wrapper">
+                    <textarea id="inputText" placeholder="Enter text to encrypt or decrypt..."></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('inputText')">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Secret Key</label>
+                <div class="input-wrapper">
+                    <input type="password" id="secretKey" placeholder="Enter your private key">
+                    <button class="toggle-key" onclick="toggleKeyVisibility()">
+                        <i class="fa-regular fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="encryptBtn" class="btn btn-primary">
+                    <i class="fa-solid fa-lock"></i> Encrypt
+                </button>
+                <button id="decryptBtn" class="btn btn-secondary">
+                    <i class="fa-solid fa-lock-open"></i> Decrypt
+                </button>
+            </div>
+
+            <div class="input-group output-group">
+                <label>Result</label>
+                <div class="textarea-wrapper">
+                    <textarea id="outputText" readonly placeholder="Result will appear here..."></textarea>
+                    <button class="copy-btn" onclick="copyToClipboard('outputText')">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
