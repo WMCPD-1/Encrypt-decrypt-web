@@ -89,4 +89,34 @@ function toggleKeyVisibility() {
         icon.classList.remove('fa-eye-slash');
         icon.classList.add('fa-eye');
     }
+
+}
+
+// --- QR Code Generation ---
+const qrBtn = getElement('qrBtn');
+
+qrBtn.addEventListener('click', () => {
+    const output = getElement('outputText').value;
+
+    if (!output) {
+        alert("No encrypted text to convert into QR.");
+        return;
+    }
+
+    // Clear previous QR
+    document.getElementById("qrcode").innerHTML = "";
+
+    // Generate QR Code
+    new QRCode(document.getElementById("qrcode"), {
+        text: output,
+        width: 200,
+        height: 200
+    });
+
+    // Show modal
+    document.getElementById("qrContainer").style.display = "flex";
+});
+
+function closeQR() {
+    document.getElementById("qrContainer").style.display = "none";
 }
